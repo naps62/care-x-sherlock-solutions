@@ -3,16 +3,14 @@ import { ethers, network } from "hardhat";
 import { BigNumber } from "ethers";
 import type { Contract } from "ethers";
 import type { SignerWithAddress } from "@nomiclabs/hardhat-ethers/signers";
-import "dotenv/config";
-assert(process.env.ALCHEMY_API_ENDPOINT);
 
-export async function forkToMainnet(block?: number) {
+export async function forkToGoerli(block?: number) {
   await network.provider.request({
     method: "hardhat_reset",
     params: [
       {
         forking: {
-          jsonRpcUrl: process.env.ALCHEMY_API_ENDPOINT!,
+          jsonRpcUrl: process.env.GOERLI_ENDPOINT!,
           blockNumber: block,
         },
       },
