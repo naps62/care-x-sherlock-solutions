@@ -18,6 +18,19 @@ export async function forkToGoerli(block?: number) {
   });
 }
 
+export async function forkToCustomGoerli() {
+  await network.provider.request({
+    method: "hardhat_reset",
+    params: [
+      {
+        forking: {
+          jsonRpcUrl: process.env.PRIVATE_GOERLI_ENDPOINT!,
+        },
+      },
+    ],
+  });
+}
+
 const { keccak256, defaultAbiCoder } = ethers.utils;
 
 export function impersonate(accounts: string[]) {

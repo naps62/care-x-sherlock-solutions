@@ -17,8 +17,7 @@ task("accounts", "Prints the list of accounts", async (args, hre) => {
   }
 });
 
-const devMnemonic =
-  "core tornado motion pigeon kiss dish differ asthma much ritual black foil";
+const mnemonic = "test test test test test test test test test test test junk";
 
 const config: HardhatUserConfig = {
   solidity: {
@@ -33,13 +32,13 @@ const config: HardhatUserConfig = {
   networks: {
     hardhat: {
       accounts: {
-        mnemonic: devMnemonic,
+        mnemonic,
       },
     },
-    goerli: {
-      url: process.env.GOERLI_ENDPOINT,
+    private_goerli: {
+      url: process.env.PRIVATE_GOERLI_ENDPOINT,
       accounts: {
-        mnemonic: devMnemonic,
+        mnemonic,
       },
     },
   },
