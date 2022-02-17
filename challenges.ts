@@ -94,6 +94,7 @@ const challenges: Record<string, Item> = {
   naps62: {
     setup: "0x4742FD1862E94dc74AeD62A96B6374E68e658f80",
     challenge: "0xA1BCb047E9dc4aCcB36c14288239f9283DF3E68e",
+    status: "ready",
   },
   PeterisPrieditis: {
     setup: "0x64A9fcaD8D299aF9B1a96dA17458c0b3D876b687",
@@ -143,7 +144,9 @@ const challenges: Record<string, Item> = {
   },
   ych18: {
     setup: "0x40D1e6Fa69957f4c66461b8c8AB60108265F52b2",
-    challenge: "0xc0681964AB562df0275a103eA23d31D5822f8B57",
+    challenge: "0x482b62c99e9ee97126b8a56828f105e07904fd03",
+    finalizeValue: "2",
+    status: "ready",
   },
 };
 
