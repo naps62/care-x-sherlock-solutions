@@ -1,1 +1,0 @@
-[{"inputs":[],"stateMutability":"payable","type":"constructor"},{"inputs":[{"internalType":"uint8","name":"n","type":"uint8"}],"name":"guess","outputs":[],"stateMutability":"payable","type":"function"}]
