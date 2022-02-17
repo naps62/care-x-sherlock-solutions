@@ -1,0 +1,3 @@
+[submodule "challenges"]
+	path = challenges
+	url = git@github.com:sherlock-protocol/sherlock-ctf-0x0-private.git
