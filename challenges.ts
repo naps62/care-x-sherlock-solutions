@@ -10,6 +10,7 @@ const challenges: Record<string, Item> = {
   "0xmoostorm": {
     setup: "0x5e40D0d98126323b81246008d386a93BA091704f",
     challenge: "0xE442a00a4587677c945598e19DF41822e851c1DE",
+    status: "ready",
   },
   "0xNazgul": {
     setup: "0xd80960575d177A09FEb8497dBaE9F6583fcFe297",
@@ -47,11 +48,11 @@ const challenges: Record<string, Item> = {
   ebaizel: {
     setup: "0x5364B5A9e489b495CaAE4722e9706C817Cf54433",
     challenge: "0x784B7A7A25ED38EF830AEFe7985c64f3AdF08346",
-    status: "pending",
   },
   hack3r0m: {
     setup: "0xA083913ed673b23dC5FB921b3909021CacFD794C",
     challenge: "0x16051547CbaD42bBec882A7E9e6091796d0D1f50",
+    finalizeValue: "1",
     status: "pending",
   },
   iflp: {
@@ -69,11 +70,15 @@ const challenges: Record<string, Item> = {
   JustDravee: {
     setup: "0x1f5c09a7d6a9B30b43DDDAABD384425DEe0ADe91",
     challenge: "0xc7e13b9c94Eb3902Fa272E83Bb4D19392d09eF4d",
+    deployValue: "1",
+    status: "ready",
   },
   KahanMajmudar: { setup: "0x0", challenge: "0x0" },
-  "kankan-0": {
+  kankan0: {
     setup: "0x9e6C0511d07695420A0B57003d6e8c133Cd0185d",
     challenge: "0x7e18A61fd65F5E5Cf693257235a0A1F360aBE7d8",
+    finalizeValue: "10",
+    status: "ready",
   },
   kuldeep23907: {
     setup: "0x0ABBC49482097b530516d385B4dD183b59073f1C",
@@ -90,6 +95,8 @@ const challenges: Record<string, Item> = {
   mhchia: {
     setup: "0x6c06959586640De3BcdE69BDcEbF2efDa5d3983B",
     challenge: "0xC2c83168E3bf85A5DEabF25f9f9873085C201C79",
+    finalizeValue: "1",
+    status: "ready",
   },
   naps62: {
     setup: "0x4742FD1862E94dc74AeD62A96B6374E68e658f80",
@@ -103,6 +110,7 @@ const challenges: Record<string, Item> = {
   plotchy: {
     setup: "0x869a2D3856BE26cfE77cC7Cb6579219d13373Bc9",
     challenge: "0xebb997D2FabE73df8cF88Ab28b82B70741592525",
+    status: "pending",
   },
   RomiRand: {
     setup: "0x85CCd0c58Fe07DC6716f1EfCcAba0164b97ae66B",
@@ -133,6 +141,7 @@ const challenges: Record<string, Item> = {
   Thro77le: {
     setup: "0xBF3e5530aB7Dcba712E3A7fA99463d46eb6a0c8e",
     challenge: "0xd9C72eD9DdeF04D0Ab88aE2403C383Ffbd11a71c",
+    status: "test",
   },
   tqtsar: {
     setup: "0x0dCb022a9927613f1B4B23F4F893515BA196c5c5",
