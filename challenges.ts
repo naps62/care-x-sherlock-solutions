@@ -48,12 +48,13 @@ const challenges: Record<string, Item> = {
   ebaizel: {
     setup: "0x5364B5A9e489b495CaAE4722e9706C817Cf54433",
     challenge: "0x784B7A7A25ED38EF830AEFe7985c64f3AdF08346",
+    status: "pending",
   },
   hack3r0m: {
     setup: "0xA083913ed673b23dC5FB921b3909021CacFD794C",
     challenge: "0x16051547CbaD42bBec882A7E9e6091796d0D1f50",
     finalizeValue: "1",
-    status: "pending",
+    status: "ready",
   },
   iflp: {
     setup: "0x38B500E61267Ee672c823bE3a8fA559236Bd1FD3",
@@ -87,10 +88,14 @@ const challenges: Record<string, Item> = {
   lucyoa: {
     setup: "0xe95dF719Fc223CD8E57bA9bAAb8E86bEDF3e5d69",
     challenge: "0x4C9bf01acEA21DDC7Ca25d49d301B8bDd63c1966",
+    status: "test",
   },
   luksgrin: {
     setup: "0x9BDCf71048DFd8ef1C03a7ae3EDe79F04A096B7F",
     challenge: "0x137A5B4bB53A62BD1Db46e563b89D1884afaC0Ac",
+    deployValue: "1",
+    finalizeValue: "100",
+    status: "pending",
   },
   mhchia: {
     setup: "0x6c06959586640De3BcdE69BDcEbF2efDa5d3983B",
@@ -106,6 +111,7 @@ const challenges: Record<string, Item> = {
   PeterisPrieditis: {
     setup: "0x64A9fcaD8D299aF9B1a96dA17458c0b3D876b687",
     challenge: "0x94f12A6fb7D9B0cBBc43CdDC6A4827649f757c72",
+    status: "pending",
   },
   plotchy: {
     setup: "0x869a2D3856BE26cfE77cC7Cb6579219d13373Bc9",
@@ -115,10 +121,12 @@ const challenges: Record<string, Item> = {
   RomiRand: {
     setup: "0x85CCd0c58Fe07DC6716f1EfCcAba0164b97ae66B",
     challenge: "0x3dc21F58F3b77aDD4AD5D40992C0B431bdFFc6B8",
+    status: "pending",
   },
   saianmk: {
     setup: "0xbFB2C43021629C87b83C97F1FAC8D5f6b1078593",
     challenge: "0xB5193e99607e7e63B49ACC48fCe0AC7A3676e4F6",
+    status: "pending",
   },
   sidduHERE: {
     setup: "0x76BB80b4F1bA62eD2665f537f605C3593daCc458",
@@ -130,22 +138,28 @@ const challenges: Record<string, Item> = {
     setup: "0x838Ed804d95044516C16473C91388AE195da0B76",
     challenge: "0xf8cd9B34e1B526Fef4D0eb2cA595D3D349F2301a",
   },
-  "t-nero": {
+  tnero: {
     setup: "0x34e5EC7DA55039f332949a6d7dB506cD94594E12",
     challenge: "0x2488764643d43f974b3819dc14400543B3DF9904",
+    deployValue: "1",
+    finalizeValue: "10",
+    status: "pending",
   },
   teryanarmen: {
     setup: "0xAD392F2a981bDE60B43eC988a30ce2aE2d755eD2",
     challenge: "0x8720D38BbC9212B8fD202BCcda07cff32b6F7920",
+    status: "pending",
   },
   Thro77le: {
     setup: "0xBF3e5530aB7Dcba712E3A7fA99463d46eb6a0c8e",
     challenge: "0xd9C72eD9DdeF04D0Ab88aE2403C383Ffbd11a71c",
-    status: "test",
+    finalizeValue: "1",
+    status: "pending",
   },
   tqtsar: {
     setup: "0x0dCb022a9927613f1B4B23F4F893515BA196c5c5",
     challenge: "0x44898e95E81600e7aD0a85F7e1A5daA987BC1365",
+    status: "pending",
   },
   wuwe1: {
     setup: "0xB1F9187d9FFCd22fE2c26FeF3E8b8F90C31Ae885",

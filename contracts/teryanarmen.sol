@@ -1,101 +1,108 @@
-// // SPDX-License-Identifier: UNLICENSED
-// pragma solidity >=0.8.0;
+// SPDX-License-Identifier: UNLICENSED
+pragma solidity >=0.8.0;
 
-// import "hardhat/console.sol";
-// import "@openzeppelin/contracts/utils/Address.sol";
+import "hardhat/console.sol";
+import "@openzeppelin/contracts/utils/Address.sol";
 
-// interface ICalled {
-//     function sup() external returns (uint256);
-// }
+interface ICalled {
+    function sup() external returns (uint256);
+}
 
-// interface IChallenge_teryanarmen {
-//     function first() external;
+interface IChallenge_teryanarmen {
+    function first() external;
 
-//     function second() external;
+    function second() external;
 
-//     function third() external;
+    function third() external;
 
-//     function fourth() external;
+    function fourth() external;
 
-//     function winner() external view returns (address);
-// }
+    function winner() external view returns (address);
+}
 
-// contract Exploit_teryanarmen {
-//     IChallenge_teryanarmen instance;
+contract Exploit_teryanarmen {
+    IChallenge_teryanarmen instance;
 
-//     uint256 public sup = 1337;
+    uint256 public sup = 1337;
 
-//     constructor(IChallenge_teryanarmen _instance) payable {
-//         instance = _instance;
+    constructor(IChallenge_teryanarmen _instance) payable {
+        instance = _instance;
 
-//         Exploit_teryanarmen_Third third = new Exploit_teryanarmen_Third(instance);
+        instance.third();
+        // Exploit_teryanarmen_Third third = new Exploit_teryanarmen_Third(instance);
 
-//         instance.second();
-//     }
+        // instance.second();
+    }
 
-//     function finalize() external payable {
-//         // instance.first();
-//         // sup = 80085;
-//         // instance.fourth();
+    function finalize() external payable {
+        instance.second();
+        instance.first();
+        // instance.first();
+        // sup = 80085;
+        // instance.fourth();
 
-//         selfdestruct(payable(address(this)));
-//     }
+        selfdestruct(payable(address(this)));
+    }
 
-//     // receive() external payable {}
-// }
+    // receive() external payable {}
+}
 
-// contract Exploit_teryanarmen_Third {
-//     constructor(IChallenge_teryanarmen _instance) {
-//         _instance.third();
-//     }
-// }
+contract Exploit_teryanarmen_Third {
+    constructor(IChallenge_teryanarmen _instance) {
+        _instance.third();
+    }
+}
 
-// contract Challenge2 {
-//     using Address for address;
+contract Challenge2 {
+    using Address for address;
 
-//     State public state;
-//     address public winner;
+    State public state;
+    address public winner;
 
-//     modifier onlyWinner() {
-//         require(msg.sender == winner, "oops");
-//         _;
-//     }
-//     modifier onlyState(State _state) {
-//         require(state == _state, "no...");
-//         _;
-//     }
-//     modifier onlyContract() {
-//         require(Address.isContract(msg.sender), "try again");
-//         _;
-//     }
-//     modifier onlyNotContract() {
-//         require(!Address.isContract(msg.sender), "yeah, no");
-//         _;
-//     }
+    modifier onlyWinner() {
+        require(msg.sender == winner, "oops");
+        _;
+    }
+    modifier onlyState(State _state) {
+        require(state == _state, "no...");
+        _;
+    }
+    modifier onlyContract() {
+        require(Address.isContract(msg.sender), "try again");
+        _;
+    }
+    modifier onlyNotContract() {
+        require(!Address.isContract(msg.sender), "yeah, no");
+        _;
+    }
 
-//     enum State {
-//         ZERO,
-//         ONE,
-//         TWO,
-//         THREE
-//     }
+    enum State {
+        THREE,
+        TWO,
+        ONE,
+        ZERO
+    }
 
-//     function first() public onlyNotContract onlyState(State.ZERO) {
-//         winner = msg.sender;
-//         state = State.ONE;
-//     }
+    constructor() payable {
+        require(msg.value == 1 ether, "cheap");
+    }
 
-//     function second() public onlyWinner onlyContract onlyState(State.ONE) {
-//         require(ICalled(msg.sender).sup() == 1337, "not leet");
-//         state = State.TWO;
-//     }
+    function first() public onlyWinner onlyNotContract onlyState(State.ONE) {
+        state = State.ZERO;
+    }
 
-//     function third() public onlyWinner onlyNotContract onlyState(State.TWO) {
-//         state = State.THREE;
-//     }
+    function second() public onlyWinner onlyContract onlyState(State.TWO) {
+        require(ICalled(msg.sender).sup() == 1337, "not leet");
+        state = State.ONE;
+    }
 
-//     function fourth() public onlyWinner onlyContract onlyState(State.THREE) {
-//         require(ICalled(msg.sender).sup() == 80085, "not boobs");
-//         payable(msg.sender).transfer(address(this).balance);
-//     }
-// }
+    function third() public onlyNotContract onlyState(State.THREE) {
+        winner = msg.sender;
+        state = State.TWO;
+    }
+
+    function fourth() public onlyWinner onlyContract onlyState(State.ZERO) {
+        require(ICalled(msg.sender).sup() == 80085, "not boobs");
+        payable(msg.sender).transfer(address(this).balance);
+    }
+}

