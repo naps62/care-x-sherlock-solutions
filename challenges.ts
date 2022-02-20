@@ -19,11 +19,12 @@ const challenges: Record<string, Item> = {
   agusduha: {
     setup: "0x459D9C80482c541deC1Aa491209EF598BF7c9344",
     challenge: "0x4B8df63820cD31D063a160e1C40f8583227591cB",
+    status: "test",
   },
   bahurum: {
     setup: "0xABF1f66a9fb48F3f5b75C8A83FB5854A9d906343",
     challenge: "0x68C3CA33c766cd60E4Af98D697EBd541B4DA7968",
-    status: "test",
+    status: "ready",
   },
   band0x: {
     setup: "0x46C9489797c5647F850dD3A5bcB13C240bcd383A",
@@ -34,6 +35,7 @@ const challenges: Record<string, Item> = {
   Baraa42: {
     setup: "0xFfb20eF6668F8160934FD84b60F3DeD127F787Aa",
     challenge: "0x31448618e0C48c6Bcb2A729709DDF51F1cA0c628",
+    status: "pending",
   },
   BowTiedPickle: {
     setup: "0xfF2c41d306098Ce69316C781137EaF05FABDFF6b",
@@ -154,7 +156,7 @@ const challenges: Record<string, Item> = {
   teryanarmen: {
     setup: "0xAD392F2a981bDE60B43eC988a30ce2aE2d755eD2",
     challenge: "0x8720D38BbC9212B8fD202BCcda07cff32b6F7920",
-    status: "pending",
+    status: "ready",
   },
   Thro77le: {
     setup: "0xBF3e5530aB7Dcba712E3A7fA99463d46eb6a0c8e",
