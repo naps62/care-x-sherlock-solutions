@@ -23,6 +23,7 @@ const challenges: Record<string, Item> = {
   bahurum: {
     setup: "0xABF1f66a9fb48F3f5b75C8A83FB5854A9d906343",
     challenge: "0x68C3CA33c766cd60E4Af98D697EBd541B4DA7968",
+    status: "test",
   },
   band0x: {
     setup: "0x46C9489797c5647F850dD3A5bcB13C240bcd383A",
