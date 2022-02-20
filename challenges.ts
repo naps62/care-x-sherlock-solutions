@@ -84,11 +84,14 @@ const challenges: Record<string, Item> = {
   kuldeep23907: {
     setup: "0x0ABBC49482097b530516d385B4dD183b59073f1C",
     challenge: "0x7DC33b58B3258a745C0ADbfC46d8A4B543254f24",
+    deployValue: "1",
+    finalizeValue: "1",
+    status: "pending",
   },
   lucyoa: {
     setup: "0xe95dF719Fc223CD8E57bA9bAAb8E86bEDF3e5d69",
     challenge: "0x4C9bf01acEA21DDC7Ca25d49d301B8bDd63c1966",
-    status: "test",
+    status: "ready",
   },
   luksgrin: {
     setup: "0x9BDCf71048DFd8ef1C03a7ae3EDe79F04A096B7F",
@@ -137,6 +140,8 @@ const challenges: Record<string, Item> = {
   smbsp: {
     setup: "0x838Ed804d95044516C16473C91388AE195da0B76",
     challenge: "0xf8cd9B34e1B526Fef4D0eb2cA595D3D349F2301a",
+    finalizeValue: "1",
+    status: "ready",
   },
   tnero: {
     setup: "0x34e5EC7DA55039f332949a6d7dB506cD94594E12",
