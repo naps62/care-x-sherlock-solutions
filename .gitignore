@@ -11,3 +11,5 @@ docs/
 deployments/localhost
 node_modules/
 etherscan_contract_downloader
+deps
+_build

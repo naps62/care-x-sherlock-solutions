@@ -19,6 +19,7 @@ contract Exploit_luksgrin {
         instance.enterDungeon{value: 0.1 ether}();
         // combatting false
 
+        console.log(1);
         do {
             decide();
             instance.turn();

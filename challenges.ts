@@ -19,7 +19,7 @@ const challenges: Record<string, Item> = {
   agusduha: {
     setup: "0x459D9C80482c541deC1Aa491209EF598BF7c9344",
     challenge: "0x4B8df63820cD31D063a160e1C40f8583227591cB",
-    status: "test",
+    status: "pending",
   },
   bahurum: {
     setup: "0xABF1f66a9fb48F3f5b75C8A83FB5854A9d906343",
@@ -162,7 +162,7 @@ const challenges: Record<string, Item> = {
     setup: "0xBF3e5530aB7Dcba712E3A7fA99463d46eb6a0c8e",
     challenge: "0xd9C72eD9DdeF04D0Ab88aE2403C383Ffbd11a71c",
     finalizeValue: "1",
-    status: "pending",
+    status: "test",
   },
   tqtsar: {
     setup: "0x0dCb022a9927613f1B4B23F4F893515BA196c5c5",
